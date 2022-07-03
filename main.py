@@ -40,7 +40,7 @@ if __name__ == "__main__":
     #Parameters
     number_of_images = args.number_of_images              # Desired number of images
     headless = True                    # True = No Chrome GUI
-    min_resolution = (500, 400)            # Minimum desired image resolution
+    min_resolution = (500, 500)            # Minimum desired image resolution
     max_resolution = (4096, 4096)      # Maximum desired image resolution
     max_missed = 100                    # Max number of failed images before exit
     number_of_workers = args.number_of_workers              # Number of "workers" used
