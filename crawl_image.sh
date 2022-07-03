@@ -1,1 +1,1 @@
-python3 main.py --search-key 'your key words go here' --number-of-images 500 --number-of-workers 4
+python3 main.py --search-key 'your key words go here' --number-of-images 1000 --number-of-workers 4
