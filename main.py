@@ -42,7 +42,7 @@ if __name__ == "__main__":
     headless = True                    # True = No Chrome GUI
     min_resolution = (500, 500)            # Minimum desired image resolution
     max_resolution = (4096, 4096)      # Maximum desired image resolution
-    max_missed = 100                    # Max number of failed images before exit
+    max_missed = 1000                    # Max number of failed images before exit
     number_of_workers = args.number_of_workers              # Number of "workers" used
 
     #Run each search_key in a separate thread
