@@ -11,6 +11,14 @@ import concurrent.futures
 from GoogleImageScraper import GoogleImageScraper
 from patch import webdriver_executable
 
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--search-key", type=str)
+parser.add_argument("--number-of-images", type=int)
+parser.add_argument("--number-of-workers", type=int)
+
+args = parser.parse_args()
 
 def worker_thread(search_key):
     image_scraper = GoogleImageScraper(
@@ -27,15 +35,15 @@ if __name__ == "__main__":
     image_path = os.path.normpath(os.path.join(os.getcwd(), 'photos'))
 
     #Add new search key into array ["cat","t-shirt","apple","orange","pear","fish"]
-    search_keys = ["cat", "t-shirt"]
+    search_keys = [args.search_key]
 
     #Parameters
-    number_of_images = 5              # Desired number of images
+    number_of_images = args.number_of_images              # Desired number of images
     headless = True                    # True = No Chrome GUI
-    min_resolution = (0, 0)            # Minimum desired image resolution
-    max_resolution = (9999, 9999)      # Maximum desired image resolution
-    max_missed = 1000                    # Max number of failed images before exit
-    number_of_workers = 1              # Number of "workers" used
+    min_resolution = (500, 400)            # Minimum desired image resolution
+    max_resolution = (4096, 4096)      # Maximum desired image resolution
+    max_missed = 100                    # Max number of failed images before exit
+    number_of_workers = args.number_of_workers              # Number of "workers" used
 
     #Run each search_key in a separate thread
     #Automatically waits for all threads to finish
